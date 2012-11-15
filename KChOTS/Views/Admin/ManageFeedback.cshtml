@@ -1,0 +1,67 @@
+﻿@model KChOTS.Models.Feedback.FeedbackViewModel
+@{
+    ViewBag.Title = "Manage Feedback";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="calendarwrapper">
+    <h3>Upcoming Events</h3>
+    @Html.Partial("_EventCalendar")
+</div>
+
+
+    <h2 style="display:inline;">Respond to Teachers Feedback</h2><b id="message" style="margin-left: 50px;color:Green; display:none;">Event Created</b>
+        <table>
+        <tr><th></th></tr>
+        @foreach(var item in Model.Feedback){
+            <div id="@item.Feedback.ID" class="ItemWrapper selectreply recentfeedbackrwrapper">
+                    <div class="itemName">@item.Feedback.Subject</div>
+                    <div class="itemContent">@item.Feedback.Message</div>
+                    <div class="itemProperty" style="margin: 5px 5px;font-style: italic;">By: @item.Teacher.LastName, @item.Teacher.FirstName</div>
+            </div>
+        }
+        </table>
+        @if (Model.Feedback.Count == 0) {
+            <h3 style="color:Red">No messages as of the moment.</h3>
+        }
+
+
+<div id="replyform" class="hform">
+    <form id="replyForm">
+    <h3 class="center">Reply to Feedback</h3>
+    <table class="center">
+        <tr>
+    	    <td>Message</td>
+       	    <td><input type="text" name="message"/></td>
+            <td colspan = "2"></td>
+        </tr>
+    </table>
+    <span><input type="button" id="submitreply" style="float:none;" class="submit" value="Create" /></span>
+    <span><input type="button" id="closereply" style="float:none;" class="submit" value="Close" /></span>
+    </form>
+</div>
+<script type="text/javascript">
+$(".selectreply").click(function (e) {
+    var feedbackid = $(this).attr('id');
+    $("#replyForm").css('left', e.pageX);
+    $("#replyForm").css('top', e.pageY);
+    $.post("@Url.Action("SelectReply", "Utility")", { FeedbackId:feedbackid },function () {
+        $("#replyform").fadeIn();
+    });
+});
+
+$("#submitreply").click(function(){
+    $.post("@Url.Action("RespondReply","Utility")", $("#replyForm").serialize(), function(data) {
+        $("#replyform").fadeOut();
+        $("#message").html('Reply Successful');
+        $("#message").css('color', 'Green');
+        $("#message").show();
+        $("#message").fadeOut(5000);
+    });
+});
+
+$("#closereply").click(function(){
+    $("#replyform").fadeOut();
+});
+</script>

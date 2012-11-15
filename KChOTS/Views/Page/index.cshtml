@@ -1,0 +1,20 @@
+﻿@model KChOTS.ContentPage
+
+@{
+    ViewBag.Title = "Add Content";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Content Management - Create Article</h2>
+<div style="margin-bottom: 20px;">
+    <form method="post">
+    <label class="label" style="margin-right: 5px;">Article Name</label><input type = "text" class = "subjectBox" name = "subject" placeholder="Content Title"/></span>
+    <br />
+    <textarea class="ckeditor" id="pagecontent" name="content" cols="20"></textarea>
+    <input type="submit" name="Edit Content" class="submit" />
+    <br /><br />
+    </form>
+</div>
+<script>
+    $('textarea.editor').ckeditor();
+</script>

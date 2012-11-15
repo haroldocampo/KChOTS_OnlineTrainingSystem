@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Resources";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="calendarwrapper">
+    <h3>Upcoming Events</h3>
+    @Html.Partial("_EventCalendar")
+</div>
+
+<div class="recentuploadsrwrapper">
+    <h2>Search for Resources</h2>
+        <input id="txtSearch" type="text" class="searchtxt" />
+        <h3 id="message" style="color:Green; display:inline;"></h3>
+        <ul id="ResourceList"></ul>
+</div>
+<script type="text/javascript">
+    $("#txtSearch").keyup(function () {
+        $("#message").html("Loading... Please wait...");
+        var searchvalue = $("#txtSearch").val();
+        $.post('@Url.Action("Search","Resource")', { resourceName: searchvalue }, function (data) {
+            $("#ResourceList").empty();
+            $.each(data.resources, function () {
+                var toAppend = '<a href="@Url.Action("Download", "Utility")/?filename=' + this.ResourceFile + '"><div class="ItemWrapper"><div class="itemName">' + this.Name + '</div><div class="itemContent">' + this.Description + '</div><div class="itemProperty" style="margin: 5px 5px;font-style: italic;">Date Created: ' + this.DateCreated + '</div></div></a>';
+                $("#ResourceList").append(toAppend);
+            });
+            $("#message").html("");
+        });
+    });
+</script>

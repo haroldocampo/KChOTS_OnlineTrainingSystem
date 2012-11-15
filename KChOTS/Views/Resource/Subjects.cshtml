@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Subjects";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="calendarwrapper">
+    <h3>Upcoming Events</h3>
+    @Html.Partial("_EventCalendar")
+</div>
+
+<div class="subjectswrapper">
+    <div id="wrapper">
+        <div id="subjects">
+            <h1>Subjects</h1>
+            <table class="center">
+                <tr>
+                    <td><a href="@Url.Action("Page", new { id = 1 })"><img src="../../Content/images/subjects/english.jpg" alt="English"/></a></td>
+                    <td><a href="@Url.Action("Page", new { id = 2 })"><img src="../../Content/images/subjects/math.jpg" alt="Math"/></a></td>
+                  
+                </tr>
+                <tr>
+                    <td><a href="@Url.Action("Page", new { id = 4 })"><img src="../../Content/images/subjects/filipino.jpg" alt="Elementary"/></a></td>
+                    <td><a href="@Url.Action("Page", new { id = 3 })"><img src="../../Content/images/subjects/science.jpg" alt="Science"/></a></td>
+                </tr>
+                  <tr>
+                    <td><a href="@Url.Action("Page", new { id = 5 })"><img src="../../Content/images/subjects/araling_panlipunan.jpg" alt="Elementary"/></a></td>
+                    <td><a href="@Url.Action("Page", new { id = 6 })"><img src="../../Content/images/subjects/tle.jpg" alt="Elementary"/></a></td>
+                </tr>
+                <tr>
+                    <td><a href="@Url.Action("Page", new { id = 7 })"><img src="../../Content/images/subjects/mapeh.jpg" alt="High School"/></a></td>
+                    <td><a href="@Url.Action("Page", new { id = 8 })"><img src="../../Content/images/subjects/values_ed.jpg" alt="High School"/></a></td>
+                </tr>
+                <tr><td colspan="2"><span><h3><a href ="@Url.Action("Index","Resource")">Go back to Levels</a></h3></span></td></tr>
+            </table>
+        </div>
+    </div>
+</div>

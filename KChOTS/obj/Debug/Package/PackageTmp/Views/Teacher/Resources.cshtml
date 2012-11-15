@@ -1,0 +1,25 @@
+﻿@model KChOTS.Models.Teacher.TeacherResourcesViewModel
+@{
+    ViewBag.Title = "Resources";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="calendarwrapper">
+    <h3>Upcoming Events</h3>
+    @Html.Partial("_EventCalendar")
+</div>
+
+<div class="recentuploadsrwrapper">
+    <h2>My Resources</h2>
+        <ul>
+        @foreach(var resource in Model.Resources){
+        <a href="@Url.Action("Download", "Utility", new { filename = resource.ResourceFilePath })">
+            <div class="ItemWrapper">
+                    <div class="itemName">@resource.Name</div>
+                    <div class="itemContent">@resource.Description</div>
+                    <div class="itemProperty" style="margin: 5px 5px;font-style: italic;">Date Created: @resource.DateCreated</div>
+            </div>
+        </a>
+        }
+        </ul>
+</div>

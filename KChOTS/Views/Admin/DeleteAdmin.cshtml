@@ -1,0 +1,55 @@
+﻿@model KChOTS.Admin
+           
+@{
+    ViewBag.Title = "DeleteAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class = "admindeletionwrapper">
+    <div id="wrapper">
+    <div id="admincreation">
+    <h1>Delete Admin</h1>
+            <center><div id = "reg-wrapper">
+            @using (Html.BeginForm())
+            {
+
+            <h3>Are you sure you want to delete this administrator?</h3>
+
+            <table class="DeleteAdmin">
+                    <tr>
+                        <td>Username</td>
+                        <td>@Html.DisplayFor(model => model.Username)</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>@Html.DisplayFor(model => model.LastName)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.DisplayFor(model => model.FirstName)</td>
+                    </tr>
+                    <tr>
+                        <td>Contact Number</td>
+                        <td>@Html.DisplayFor(model => model.ContactNo)</td>
+                    </tr>
+                    <tr>
+                        <td>Email Address</td>
+                        <td>@Html.DisplayFor(model => model.Email)</td>
+                    </tr>
+                    <tr>
+                        <td>Date Created</td>
+                        <td>@Html.DisplayFor(model => model.DateCreated)</td>
+                    </tr>
+                    <tr> 
+                        <td colspan="2"><input type="submit" class="submit" value="Delete Admin" /></td>
+                        @Html.HiddenFor(x => x.AdminID)
+                    </tr>
+               </table>
+            }
+             </div></center>
+    </div>
+    </div>
+</div>
+
+

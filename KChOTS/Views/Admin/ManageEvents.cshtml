@@ -1,0 +1,164 @@
+﻿@model IEnumerable<KChOTS.Event>
+@{
+    ViewBag.Title = "Manage Event";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style type="text/css">
+    .event-list th, .event-list td { padding: 0 20px; text-align: center; }
+</style>
+<h2>Organize Events</h2>
+<input type="button" class="button" id="createEvent" value="Create Event" /><b id="message" style="color:Green; display:none;">Event Created</b>
+<hr />
+<div class="left">
+    <div class="left">
+    @Html.Hidden("EventID", null, new { id="eventid" })
+    @Html.Partial("_EventCalendar")
+    </div>
+    <div class="left event-list">
+        <table class="events-table">
+            <tr>
+                <th>Title</th><th>Start of Event</th><th>End of Event</th><th colspan="2">Options</th>
+            </tr>
+            @foreach(var item in Model){
+            <tr class="item-row" id="@item.Id">
+                <td>@item.Title</td><td style="color:Green;">@item.StartDate.ToShortDateString()</td><td style="color:Red;">@item.EndDate.Value.ToShortDateString()</td>
+                <td><input id="@item.Id" type="button" class="submit selectEdit" value="Modify" /></td>
+                <td><input type="button" id="@item.Id" class="submit selectDelete" value="Cancel" /></td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>
+@Html.Partial("_CreateEvent")
+@Html.Partial("_ModifyEvent")
+@Html.Partial("_DeleteEvent")
+<script type="text/javascript">
+
+    //START OF CREATE EVENT
+    function loadEvents(){
+    $("#createEvent").click(function (e) {
+        $("#createform").css('left', e.pageX);
+        $("#createform").css('top', e.pageY - $("#createform").height());
+        $("#createform").fadeIn();
+    });
+
+    $("#submitEvent").click(function () {
+        $.post('@Url.Action("CreateEvent","Utility")', $("#eventForm").serialize(), function (data) {
+            if (data.success) {
+                $("#message").html('Event Created');
+                $("#message").css('color', 'Green');
+                $("#eventcalendar").fullCalendar('refetchEvents');
+                $(".events-table").append('<tr class="item-row" id="'+data.item+'"><td>'+data.title+'</td><td style="color:Green;">'+data.start+'</td><td style="color:Red;">'+data.end+'</td><td><input id="'+data.item+'" type="button" class="submit selectEdit" value="Modify" /></td><td><input type="button" id="'+data.item+'" class="submit selectDelete" value="Cancel" /></td></tr>');
+                loadEvents();
+            } else {
+                $("#message").html('Event Rejected. Try again.');
+                $("#message").css('color', 'Red');
+            }
+            $("#message").show();
+            $("#message").fadeOut(6000);
+        });
+        $("#createform").fadeOut();
+        $("#createform").find('input').each(function () {
+            $(this).val('');
+        });
+        $('#submitEvent').val('CREATE');
+        $('#close').val('CLOSE');
+    });
+
+    $("#close").click(function () {
+        $("#createform").fadeOut();
+    });
+
+    //START OF MODIFY EVENT
+    $(".selectEdit").click(function (e) {
+        var eventid = $(this).attr('id');
+        $("#editform").css('left', e.pageX);
+        $("#editform").css('top', e.pageY);
+        $.post("@Url.Action("SelectEvent","Utility")", { eventID:eventid },function () {
+            $("#editform").fadeIn();
+        });
+    });
+
+    $("#submitEditEvent").click(function () {
+        $.post('@Url.Action("ModifyEvent","Utility")', $("#editEventForm").serialize(), function (data) {
+            if (data.success) {
+                $("#message").html('Event Modified');
+                $("#message").css('color', 'Green');
+                $("#eventcalendar").fullCalendar('refetchEvents');
+                $(".item-row").each(function(){
+                    if($(this).attr('id') == data.item)
+                    {
+                        $(this).html('<td>'+data.title+'</td><td style="color:Green;">'+data.start+'</td><td style="color:Red;">'+data.end+'</td><td><input id="'+data.item+'" type="button" class="submit selectEdit" value="Modify" /></td><td><input type="button" id="'+data.item+'" class="submit selectDelete" value="Cancel" /></td>');
+                    }
+                });
+                loadEvents();
+            } else {
+                $("#message").html('Event Modifications Rejected. Try again.');
+                $("#message").css('color', 'Red');
+            }
+            $("#message").show();
+            $("#message").fadeOut(6000);
+        });
+        $("#editform").fadeOut();
+        $("#editform").find('input').each(function () {
+            $(this).val('');
+        });
+        $('#submitEditEvent').val('MODIFY');
+        $('#closeEdit').val('CLOSE');
+    });
+
+    $("#closeEdit").click(function () {
+        $("#editform").fadeOut();
+    });
+
+    // DELETE EVENT
+    $(".selectDelete").click(function (e) {
+        var eventid = $(this).attr('id');
+        $("#deleteform").css('left', e.pageX);
+        $("#deleteform").css('top', e.pageY);
+        $.post("@Url.Action("SelectEvent","Utility")", { eventID:eventid },function () {
+            $("#deleteform").fadeIn();
+        });
+    });
+    
+
+    $("#deleteEvent").click(function () {
+        $.post('@Url.Action("DeleteEvent","Utility")', function (data) {
+            if (data.success) {
+                $("#message").html('Event Cancelled');
+                $("#message").css('color', 'Green');
+                $("#eventcalendar").fullCalendar('refetchEvents');
+                $(".item-row").each(function(){
+                    if($(this).attr('id') == data.item)
+                    {
+                        $(this).remove();
+                    }
+                });
+            } else {
+                $("#message").html('Event Modifications Rejected. Try again.');
+                $("#message").css('color', 'Red');
+            }
+            $("#message").show();
+            $("#message").fadeOut(6000);
+        });
+        $("#deleteform").fadeOut();
+        $("#deleteform").find('input').each(function () {
+            $(this).val('');
+        });
+        $('#deleteEvent').val('DELETE');
+        $('#closeDelete').val('CLOSE');
+    });
+
+    $("#closeDelete").click(function () {
+        $("#deleteform").fadeOut();
+    });
+
+    //DATE PICKERS
+
+    $("#startDate").datepicker();
+    $("#endDate").datepicker();
+    $("#startEditDate").datepicker();
+    $("#endEditDate").datepicker();
+    }
+    loadEvents();
+</script>

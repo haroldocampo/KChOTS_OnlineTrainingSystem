@@ -1,0 +1,72 @@
+﻿@model IEnumerable<KChOTS.Admin>
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="viewadminswrapper">
+    <div id="wrapper">
+    <div id="viewadmins">
+        <h1>Manage Administrators</h1>
+        <style>
+        .ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
+        </style>
+
+            <h2> @Html.ActionLink("Create New Admin Here", "CreateAdmin", null, new { @class="createAdmin" }) </h2>
+            <center><table border="1" class="ViewAdmin">
+                <tr>
+                    <th colspan="3">
+                        Admin ID
+                    </th>
+                    <th colspan="3">
+                        Username
+                    </th>
+                    <th colspan="3">
+                        LastName
+                    </th>
+                    <th colspan="3">
+                        FirstName
+                    </th>
+                    <th colspan="3">
+                        ContactNo
+                    </th>
+                    <th colspan="3">
+                        Email
+                    </th>
+                    <th></th>
+                </tr>
+
+            @foreach (var admin in Model) {
+                <tr>
+                    <td colspan="3">
+                        @Html.DisplayFor(modelAdmin => admin.AdminID)
+                    </td>
+                    <td colspan="3">
+                        @Html.DisplayFor(modelAdmin => admin.Username)
+                    </td>
+                    <td colspan="3">
+                        @Html.DisplayFor(modelAdmin => admin.LastName)
+                    </td>
+                    <td colspan="3">
+                        @Html.DisplayFor(modelAdmin => admin.FirstName)
+                    </td>
+                    <td colspan="3">
+                        @Html.DisplayFor(modelAdmin => admin.ContactNo)
+                    </td>
+                    <td colspan="3">
+                        @Html.DisplayFor(modelAdmin => admin.Email)
+                    </td>
+                    <td colspan="3" class"ModifyLink">
+                        @Html.ActionLink("Edit", "EditAdmins", new { id = admin.AdminID }) |
+                        @Html.ActionLink("Delete", "DeleteAdmin", new { id = admin.AdminID })
+                    </td>
+                </tr>
+            }
+
+            </table></center>
+    </div>
+    </div>
+</div>
+

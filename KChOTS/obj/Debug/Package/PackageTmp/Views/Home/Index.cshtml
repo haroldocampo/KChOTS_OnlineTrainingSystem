@@ -1,0 +1,14 @@
+﻿@model KChOTS.Models.ContentPage.ContentViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id = "indexWrapper">
+    <h1>Welcome to Knowledge Channel's Online Training System!</h1>
+    <a href="../Teacher/Register" >Join Us and  Register Here!</a><br />
+
+    @Html.Raw(Model.Content)
+
+</div>
+

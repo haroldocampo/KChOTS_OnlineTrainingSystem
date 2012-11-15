@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Sign In";
+    Layout = "../Shared/_LayoutGuest.cshtml";
+}
+
+<div id="news-header">
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera.</p>
+</div>
+
+<link rel="Stylesheet" href="../../Content/Style.css" type="text/css" media="screen"/>
+<link rel="Stylesheet" href="../../Content/nivo-slider.css" type="text/css" media="screen"/>
+
+<div class="slider-wrapper theme-default">
+    <div id="slider" class="nivoSlider">
+       <img src="../../Content/images/slider/slide1.jpg" />
+       <img src="../../Content/images/slider/slide2.jpg" />
+       <img src="../../Content/images/slider/slide3.jpg" />
+       <img src="../../Content/images/slider/slide4.jpg" />
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../../Scripts/jquery-1.7.1min.js"></script>
+<script type="text/javascript" src="../../Scripts/jquery.nivo.slider.js"></script>
+<script type="text/javascript">
+    $(window).load(function () {
+        $('#slider').nivoSlider();
+    });
+</script>
+
+@*<a class="hiddenanchor" id="toregister"></a>
+<a class="hiddenanchor" id="tologin"></a>*@
+
+<div id = "wrapper">
+@using (Html.BeginForm())
+{   
+    <div id="login">
+    <form action="Index" autocomplete="on">
+        <h1>Admin Sign In</h1>
+        <p>@Html.ValidationSummary()</p>
+            <p>
+                <label for="username" data-icon="e"> Your Username</label>
+                <input type="text" name="Username" placeholder="Username" autofocus required/>
+            </p>
+            <p>
+                <label for="password" data-icon="p"> Your password </label>
+                <input type="password" name="password" placeholder="eg. 2in1qwerty" required/>   
+            </p>
+            <p>
+                <input class="login button" style="margin:0;" type="submit" value="Sign In" /><br />
+            </p>
+            <p class="change_link">
+                Forgot Password ?
+                <a href="../Account/RequestResetPassword" >Click here!</a>
+            </p>
+        </form>
+    </div>
+}
+</div>
+<div class="clear"></div>

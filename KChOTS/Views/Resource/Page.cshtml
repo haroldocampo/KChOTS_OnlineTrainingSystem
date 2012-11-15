@@ -1,0 +1,32 @@
+﻿@model KChOTS.Models.Resources.ResourcePageViewModel
+@{
+    ViewBag.Title = "Resources";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="calendarwrapper">
+    <h3>Upcoming Events</h3>
+    @Html.Partial("_EventCalendar")
+</div>
+
+<div class="recentuploadsrwrapper">
+    <div class="resources_wrapper">
+    <h2>@Model.LevelName > @Model.SubjectName</h2>
+        <ul>
+        @foreach (var resource in Model.Resources)
+        {
+        <a href="@Url.Action("Download", "Utility", new { filename=resource.ResourceFile })">
+            <div class="ItemWrapper">
+                    <div class="itemName">@resource.Name</div>
+                    <div class="itemContent">@resource.Description</div>
+                    <div class="itemProperty" style="margin: 5px 5px;font-style: italic;">Date Created: @resource.DateCreated</div>
+            </div>
+        </a>
+        }
+        @if (Model.Resources.Count == 0)
+        {
+            <h3 style="color:Red">No Resources Found</h3>
+        }
+        </ul>
+    </div>
+</div>

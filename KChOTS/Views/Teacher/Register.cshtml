@@ -1,0 +1,118 @@
+﻿@model KChOTS.Models.Teacher.TeacherViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "../Shared/_LayoutGuest.cshtml";
+}
+<div class="center">
+@Html.ValidationSummary()
+</div>
+<div class="registerwrapper">
+<div id="wrapper">
+@using (Html.BeginForm())
+{	
+    <div id="register">
+    <form  action="SignIn" autocomplete="on"> 
+       <h1>Account Registration</h1>
+        <table width="800">
+            <tr>
+            	<td><h4>Personal Information</h4></td>
+                <td><h4>Account Information</h4></td>
+            </tr>    
+            <tr>
+	            <td><p><label for="name" data-icon="u">Name</label><p/></td>
+    	        <td><p><label for="email" data-icon="e">Your Email</label><p/></td>    
+            </tr>
+            <tr>
+            	<td><p>@Html.TextBoxFor(x => x.Teacher.LastName, new { placeholder = "Last Name", autofocus = "autofocus", required = "required" })<p/></td>
+            	<td><p>@Html.TextBoxFor(x => x.Teacher.Email, new { placeholder = "info@mail.com", required = "required" })<p/></td>  
+            </tr>
+            <tr>
+            	<td><p>@Html.TextBoxFor(x => x.Teacher.FirstName, new { placeholder = "First Name", required = "required" })<p/></td>
+            	<td><p><label for="contactnumber" data-icon="n">Contact Number</label><p/></td>  
+            </tr>
+            <tr>
+            	<td><p><label for="gender">Gender&nbsp;</label>@Html.DropDownListFor(x => x.Teacher.Gender, Model.Genders, new { @class = "selectreg" })<p/></td>
+            	<td><p>@Html.TextBoxFor(x => x.Teacher.ContactNumber, new { placeholder = "09123456789", maxlength ="11" })<p/></td>  
+            </tr>
+            <tr>
+            	<td><p><label for="birthday" data-icon="b">Birthday</label><p/></td>
+            	<td><p><label for="password" data-icon="p">Password</label><p/></td>  
+            </tr>
+             <tr>
+            	<td><p>@Html.TextBoxFor(x => x.Teacher.BirthDate, new { id = "birthdate" })<p/></td>
+            	<td><p>@Html.PasswordFor(x => x.Teacher.Password, new { id = "password", placeholder = "eg. 2in1qwerty", required = "required" })<p/></td>  
+            </tr>
+            <tr>
+            	<td><h4>School Information</h4></td>
+            	<td><p><label for="confirmpassword" data-icon="p">Confirm Password</label><p/></td>  
+            </tr>
+            <tr>
+            	<td><p><input id="schoolname" type="text" class="input" name="schoolname" required>@Html.HiddenFor(x => x.Teacher.SchoolID, new { id = "schoolid" })<p/></td>
+            	<td><p>@Html.PasswordFor(x => x.Teacher.ConfirmPassword, new { id = "confirmpassword", placeholder = "eg. 2in1qwerty", required = "required" })<p/></td>  
+            </tr>
+            <tr>
+                <td><p><div id="loader"><span id="messageSchool"></span></div></p></td>
+                <td><p><b id="passwordmessage" style="color:Red;"></b></p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p><input type="submit" class="signin button" style="margin:0;" value="Register"/> </p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p class="change_link">Already a member ?<a href="SignIn" class="to_register"> Go and log in </a></p></td>
+            </tr>
+      	</table>  
+        </form>
+ 	</div>
+  	<div class="clear"></div>
+}
+</div>
+</div>
+
+<script type="text/javascript">
+    $("#confirmpassword").keyup(function () {
+        var pword = $("#password").val();
+        var cpword = $("#confirmpassword").val();
+        if (pword != cpword) {
+            $("#passwordmessage").html("Passwords do not match");
+        } else {
+            $("#passwordmessage").html("");
+        }
+    });
+
+    $("#birthdate").datepicker({ changeYear: true, changeMonth: true, defaultDate: '-30y' });
+
+    $("#schoolname").keyup(function () {
+        if ($("#schoolname").val().length > 1) {
+            $("#loader").show();
+        } else {
+            $("#loader").hide();
+        }
+    });
+
+    $("#schoolname").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: '@Url.Action("AutoComplete", "Utility")', type: "POST", dataType: 'json',
+                data: { searchText: $("#schoolname").val(), maxResults: 10 },
+                success: function (data) {
+                    $("#loader").hide();
+                    response($.map(data, function (item) {
+                        if (item == null) {
+                            $("#messageSchool").html = "No results found";
+                        } else {
+                            $("#messageSchool").html = "";
+                        }
+                        return { value: item.SchoolName, schoolid: item.SchoolID }
+                    }))
+                }
+            })
+        },
+        minLength: 2,
+        select: function (event, ui) {
+            $("#schoolid").val(ui.item.schoolid);
+        }
+    });
+</script>
+

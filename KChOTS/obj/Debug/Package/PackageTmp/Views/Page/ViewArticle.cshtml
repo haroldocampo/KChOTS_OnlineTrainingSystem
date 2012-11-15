@@ -1,0 +1,32 @@
+﻿@model IEnumerable<KChOTS.ContentPage>
+
+@{
+    ViewBag.Title = "ViewArticle";
+}
+
+<div class="calendarwrapper">
+    <h3>Upcoming Events</h3>
+    @Html.Partial("_EventCalendar")
+</div>
+
+
+<div class="recentuploadsrwrapper">
+    <h2>View Article</h2>
+    @foreach (var article in Model) {
+            <a href="@Url.Action("Article", "Page", new { id = article.ID})">
+                <div class="ItemWrapper">
+                    <div class="itemProperty" style="margin: 5px 5px;font-style: italic;">Article Name:
+                    @if (article.Name.Length < 20)
+                    {
+                        @article.Name
+                    }else
+                    {
+                        string response = article.Name.Substring(0, 20);
+                        string readmore = response + "...(Read more)";
+                        @readmore
+                    }
+                    </div>
+                </div>
+            </a>
+        }
+</div>

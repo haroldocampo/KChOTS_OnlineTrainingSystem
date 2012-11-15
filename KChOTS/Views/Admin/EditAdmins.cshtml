@@ -1,0 +1,62 @@
+﻿@model KChOTS.Admin
+
+@{
+    ViewBag.Title = "EditAdmins";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div class = "admincreationwrapper">
+    <div id="wrapper">
+    <div id="admincreation">
+        <h1>Edit Admin</h1>
+        @Html.ValidationSummary()
+        @using (Html.BeginForm("EditAdmin", "Admin", FormMethod.Post))
+        {  
+           <center>
+                <table width="650">
+                    <tr>
+                        <td><label for="adminType">Admin Type&nbsp;</label>
+                        <select name="AdminType" class="selectadmin"><option value="1">Super Admin</option><option value="2">Sub Admin</option><option value="3">Trainer Admin</option></select>
+                            @Html.ValidationMessageFor(model => model.Username)</td>
+                    </tr>
+                    <tr>
+                        <td><label for="name" data-icon="u">Name</label></td>
+                        <td><label for="username" data-icon="u">Username</label></td>
+                    </tr>
+                    <tr>
+                        <td>@Html.EditorFor(model => model.LastName, new { @class = "input", placeholder = "LastName", required = "required" })
+                            @Html.ValidationMessageFor(model => model.LastName)</td>
+                        <td>@Html.EditorFor(model => model.Username, new { @class = "input", placeholder = "Username", autofocus = "autofocus", required = "required" })
+                            @Html.ValidationMessageFor(model => model.Username)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.EditorFor(model => model.FirstName, new { @class = "input", placeholder = "FirstName", required = "required" })
+                            @Html.ValidationMessageFor(model => model.FirstName)</td>
+                        <td><label for="password" data-icon="p">Password</label></td>
+                    </tr>
+                        <td><label for="contact" data-icon="t">Contact Number</label></td>
+                        <td>@Html.PasswordFor(model => model.Password, new { id = "password", @class = "input", required = "required" })
+                            @Html.ValidationMessageFor(model => model.Password)</td>
+                    <tr>
+                        <td>@Html.EditorFor(model => model.ContactNo, new { maxlength = "11" })
+                            @Html.ValidationMessageFor(model => model.ContactNo)</td>
+                    </tr>
+                    <tr>
+                        <td><label for="contact" data-icon="e">Email</label></td>
+                    </tr>
+                    <tr>
+                        <td>@Html.EditorFor(model => model.Email, new { @class = "input", placeholder = "info@gmail.com", required = "required" })
+                            @Html.ValidationMessageFor(model => model.Email)</td>
+                        <td><input type="submit" class="signin button" style:"margin:0;" value="Edit Admin" /></td>
+                    </tr>
+               </table>
+            </center>
+            @Html.HiddenFor(x => x.AdminID)
+        }
+   </div>
+   </div>
+</div>

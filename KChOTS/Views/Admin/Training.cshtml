@@ -1,0 +1,65 @@
+﻿@model KChOTS.Models.Training.TrainingViewModel
+@{
+    ViewBag.Title = "Training";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script type="text/javascript" src="../../Scripts/jquery.webcam.js"></script>
+
+
+<div class="forumwrapper">
+    <div id="wrapper">
+        <div id="forum">
+            <h1>Live Forum Training</h1>
+            <div class="ChatControl">
+                <div id="MessageBox" style="float:left; overflow: auto; width:60%; height: 350px; border: solid 1px #F38800; padding: 5px;"></div>
+                <div id="VideoStream" style="float:left; margin-left: 1%; width:29%; height: 350px; border: solid 1px #F38800; padding: 5px;">
+                </div>
+            </div>
+            <div class="clear"></div>
+            <br />
+            <input type="text" id="messageInput" />
+            <input type="submit" id="SubmitMessage" class="button" value="Send" />
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    var server = $.connection.chat;
+    var connection = $.connection.hub;
+    var chatBox = $("#MessageBox");
+
+    server.onReceiveMessage = function (message) {
+        chatBox.append("<div>" + message + "</div>");
+        chatBox.scrollTop(chatBox.get(0).scrollHeight);
+    };
+
+    //If connection is available
+    connection.start().done(function () {
+        server.notifyConnection("<b class='connected'>@Model.TrainingModel.Username has CONNECTED</b>");
+
+        $('#SubmitMessage').click(function () {
+            sendMessage();
+        });
+
+        $('#messageInput').keydown(function (e) {
+            if (e.keyCode == 13) {
+                sendMessage();
+            }
+        });
+    });
+
+    function sendMessage() {
+        server.notifyUsers("@Model.TrainingModel.Username: " + $("#messageInput").val());
+        $("#messageInput").val('');
+    }
+
+    //Disconnecting
+    $(window).unload(function () {
+        server.notifyConnection("<b class='disconnected'>@Model.TrainingModel.Username has DISCONNECTED</b>");
+    });
+
+    connection.start();
+</script>

@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+
+<div class="sendfeedbackwrapper">
+<div id="wrapper">
+<div id="feedback">
+<h1>Send Us Your Feedback</h1>
+    <form method="post" action="#">
+        <p><label for="subject">Subject</label>
+           <input type = "text" name="subject" placeholder="Feedback Subject" />
+        </p>
+        <p>
+           <label for="message">Message</label>
+           <textarea class="message" name="message" placeholder="Your Message Here"></textarea>  
+        </p>
+           <input type ="submit" class="button" value="Send Feedback" />
+    </form>
+</div>
+</div>
+</div>
+
+
+@*<div id="form-wrapper">
+    <form method="post" action="#">
+        <div id ="form-inner">
+            <h3>Subject</h3>
+            <input type = "text" class="input" name="subject" placeholder="Feedback Subject" />
+            <br />
+            <h3>Message</h3>
+            <textarea class="message" name="message" placeholder="Your Message Here"></textarea>
+            <br />
+            <input type ="submit" style="margin-left: 0px;" class="button" name="Send Feedback" />
+        </div>
+    </form>
+</div>*@

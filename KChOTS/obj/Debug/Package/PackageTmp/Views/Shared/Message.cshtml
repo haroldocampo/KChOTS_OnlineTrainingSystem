@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Message";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="center">
+    <h2>@ViewBag.Header</h2>
+    <hr />
+    <h3>@ViewBag.Message</h3>
+    <h3><a id="backtohome" href="@Url.Action("Index","Home")">Back to Home</a></h3>
+</div>

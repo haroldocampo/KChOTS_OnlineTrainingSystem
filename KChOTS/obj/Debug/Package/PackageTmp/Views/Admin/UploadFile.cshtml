@@ -1,0 +1,38 @@
+﻿@model KChOTS.Models.Admin.AdminUploadViewModel
+@{
+    ViewBag.Title = "UploadKChResources";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="uploadwrapper" style="min-height:300px;">
+    <div id="wrapper">
+    
+    @Html.ValidationSummary()
+    @using (Html.BeginForm("UploadFile", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div id="upload">
+            <h1>Upload Training Resources</h1>
+            <h4>Upload Information</h4>
+            <table width="600">
+                <tr><span><b id="errorMessage" style="color:Red;"></b></span></tr>
+                <tr>
+                    <td align="right">Resource File&nbsp;</td>
+                    <td>@Html.TextBoxFor(x => x.Resource.ResourceFile, new { type = "file", autofocus = "autofocus", required = "required" })</td>
+                </tr>
+                <tr>
+                    <td align="right">Resource Name&nbsp;</td>
+                    <td>@Html.TextBoxFor(x => x.Resource.Name, new { @class = "input", autofocus = "autofocus", required = "required" })</td>
+                </tr>
+                <tr>
+                    <td align="right">Resource Description&nbsp;</td>
+                    <td>@Html.TextBoxFor(x => x.Resource.Description, new { @class = "input", required = "required" })</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" class="button" value="Upload File" /></td>
+                </tr>
+            </table>
+        </div>
+    }
+    </div>
+</div>
+<div class="clear"></div>

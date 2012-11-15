@@ -1,0 +1,20 @@
+﻿@model KChOTS.Models.Admin.AdminDataModel
+@using KChOTS.Enums
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="center">
+    @switch (Model.AdminType) {
+        case (int)AdminTypes.Super:
+            @Html.Partial("_SuperAdmin")
+            break;
+        case (int)AdminTypes.Sub:
+            @Html.Partial("_SubAdmin")
+            break;
+        case (int)AdminTypes.Trainer:
+            @Html.Partial("_TrainerAdmin")
+            break;
+    }
+</div>

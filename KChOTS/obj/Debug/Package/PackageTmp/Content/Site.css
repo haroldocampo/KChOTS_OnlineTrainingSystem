@@ -1,0 +1,623 @@
+/* CSS Document */
+
+/*------------------------------------------------------------------------
+# JF TEXTURIA - JOOMFREAK.COM JOOMLA 1.7.0 TEMPLATE 12-2011
+# ------------------------------------------------------------------------
+# COPYRIGHT: (C) 2011 JOOMFREAK.COM / KREATIF MULTIMEDIA GMBH
+# LICENSE: Creative Commons Attribution
+# AUTHOR: JOOMFREAK.COM
+# WEBSITE:  http://www.joomfreak.com - http://www.kreatif-multimedia.com
+# EMAIL:  info@joomfreak.com
+-------------------------------------------------------------------------*/
+
+html {
+  height: 100%;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+	font-family: Arial,Tahoma,Verdana,Sans-serif;
+	line-height: 1.8em;
+	margin: 0px 0px 0px 0px;
+	font-size: 15px;
+	color: #303030;
+}
+
+a:link, a:visited {
+	color:#fc930a;
+	text-decoration: none;
+	font-weight: bold;
+	outline:none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+input.button { cursor: pointer; }
+
+p { margin-top: 0; margin-bottom: 5px; }
+
+img { border: 0 none; }
+
+/*****************************************/
+/*** Template specific layout elements ***/
+/*****************************************/
+.clr{
+	clear:both;
+	margin:0px;
+	padding:0px;
+}
+#jf-body 
+{
+    min-height:100%;
+    position: relative;
+	padding: 0px;
+	margin: 0px;
+	background:url(../../Content/images/jf_body.png) repeat-x top left #f6f6f6;
+}
+
+.footer 
+{
+    clear:both;
+    position: absolute;
+    width:100%;
+    bottom: 0;
+    left: 0;
+    padding-top: 45px;
+    background: transparent;
+}
+
+#jf-wrap{
+	position:relative;
+}
+#jf-bottom-bg{
+		/*width:1045px;
+		margin:0 auto;*/
+		background:url(../../Content/images/jf_bottom.png) no-repeat bottom center;
+		padding-bottom:200px;
+}
+#jf-wrapper{
+	margin:0 auto;
+	width:1200px;
+}
+#jf-topleft{
+	float:left;
+	width:300px;
+	margin-left:10px;
+	height:22px;
+	line-height:22px;
+	color:#f8ce98;
+	margin-bottom:10px;
+}
+#jf-topleft p{
+	margin:0px;
+	padding:0px;	
+}
+#jf-topright{
+	float:right;
+	width:300px;
+	margin-right:35px;
+	height:22px;
+	line-height:22px;
+	color:#cb780d;
+	margin-bottom:10px;
+	text-align:right;
+}
+#jf-topright p{
+	padding:0px;
+	margin:0px;
+}
+#jf-topright ul{
+	padding:0px;
+	margin:0px;
+}
+#jf-topright ul li{
+	display:inline-block;
+}
+#jf-topright a,#jf-topright a:visited{
+	color:#f6f6f6;
+	text-transform:uppercase;
+	display:block;
+	padding:0px 10px;
+	font-weight:normal;
+	font-size:20px;
+}
+#jf-topright a:hover{
+	color:#323232;
+}
+
+
+#jf-header{
+	height:230px;
+	overflow:hidden;
+	margin-top:15px;
+	clear:both;
+}
+#jf-header-guest
+{
+    height:60px;
+	overflow:hidden;
+	margin-top:15px;
+	clear:both;
+}
+#jf-logo{
+	float:left;
+	width:0px;
+	margin-left:5px;
+	height:100px;
+}
+
+.right{float:right}
+
+.center 
+{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#mainmenu {
+	height:60px;
+	width:100%;
+	margin: 0 auto;
+	margin-top:80px !important;
+	margin-left:20px;
+	}
+#mainmenu ul{
+	padding:0px;
+	margin:0px;
+	}
+#mainmenu ul li
+{
+    display:inline;
+	list-style:none;
+	float:left;
+	padding:5px 10px;
+	background:url(../../Content/images/jf_menu_div.png) no-repeat top right;
+	height:20px;
+	}
+#mainmenu li a{
+	display:block;
+	font-size:16px;
+	color:#3d3d3d;
+	font-family:"ArchitectsDaughter",Helvetica,Arial,sans-serif;
+	text-decoration:none;
+	font-weight:normal;
+	line-height:20px;
+	height:20px;
+	padding: 2px 20px;
+}
+#mainmenu li a:hover{
+	color:#fff;
+	background-color:#fc930a;
+	text-decoration:none;
+}
+
+.createAdmin:hover 
+{
+    color: #154497;
+}
+
+#mainmenu li ul
+{
+margin:0px;
+padding:0px;
+display:none;
+background-color: #F6F6F6;
+}
+
+#mainmenu li:hover ul
+{
+display:block;
+width:180px;
+}
+
+#mainmenu li li
+{
+list-style:none;
+display:list-item;
+width:100%;
+}
+
+#mainmenu ul li
+{
+display:inline;
+height:20px;
+float:left;
+list-style:none;
+position:relative;
+}
+
+#mainmenu li ul
+{
+margin:0px;
+padding:0px;
+display:none;
+position:absolute;
+}
+
+#mainmenu li ul
+{
+margin:0px;
+padding:0px;
+display:none;
+position:absolute;
+left:0px; top:20px;
+}
+
+#mainmenu li ul
+{
+margin:0px;
+padding:0px;
+display:none;
+position:absolute;
+left:0px;
+top:25px;
+}
+
+#levels-wrapper {height: 635px;}
+
+/*
+HAROLDS -------------------------------------------
+*/
+
+.hform{ background-color:#FFF; height: auto; width: 350px; border: solid 1px #001B8A; position:absolute; right: 462px; top: 240px; padding: 10px; display: none;}
+.hform .submit { float:none; width: 80%; margin: 10px 10%; }
+
+.button
+{
+    width:auto;
+    height: 30px;
+    background-color: #fc930a;
+    border: 1.8px solid #073c88;
+    border-radius: 5px;
+    color:#073c88;
+    font-weight:bold;
+    text-transform:none;
+    margin: 0;
+    font-family:Arial,Tahoma,Verdana,Sans-serif;
+}
+.button:hover{
+	color:#000;
+}
+.left 
+{
+    float:left;
+}
+
+/*Feedback Page Design*/
+
+
+/*#feedback label{
+color:#7F7E7E;
+-webkit-transition: color 1s ease;
+   -moz-transition: color 1s ease;
+	    transition: color 1s ease;
+}
+
+#feedback label:hover{
+color:#191919;
+}
+
+#feedback label:before{
+color:#C1BFBD;
+-webkit-transition: color 1s ease;
+   -moz-transition: color 1s ease;
+	    transition: color 1s ease;
+}
+
+#feedback label:hover:before{
+color:#969696;
+-webkit-transition: color 1s ease;
+   -moz-transition: color 1s ease;
+	    transition: color 1s ease;
+}
+
+#feedback p{
+margin-bottom:20px;
+}
+/*
+#feedback input[type=submit]{
+margin-left:235px;
+cursor:pointer;
+background:none;
+border:none;
+font-family: 'Alice',serif;
+color:#767676;
+font-size:18px;
+padding:10px 4px;
+border:1px solid #E0E0E0;
+text-shadow: 0px 1px  1px #E8E8E8;
+background: rgb(247,247,247);
+background: -moz-linear-gradient(top,  rgba(247,247,247,1) 1%, rgba(242,242,242,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(247,247,247,1)), color-stop(100%,rgba(242,242,242,1)));
+background: -webkit-linear-gradient(top,  rgba(247,247,247,1) 1%,rgba(242,242,242,1) 100%);
+background: -o-linear-gradient(top,  rgba(247,247,247,1) 1%,rgba(242,242,242,1) 100%);
+background: -ms-linear-gradient(top,  rgba(247,247,247,1) 1%,rgba(242,242,242,1) 100%);
+background: linear-gradient(top,  rgba(247,247,247,1) 1%,rgba(242,242,242,1) 100%);
+/*border-radius*/
+/**
+-webkit-border-radius:5px;
+   -moz-border-radius:5px;
+        border-radius:5px;
+/*box-shadow*//*
+-webkit-box-shadow:0px 1px 1px #FFF inset,
+			       0 0 0px 5px #EAEAEA;
+   -moz-box-shadow:0px 1px 1px #FFF inset,	
+   		           0 0 0px 5px #EAEAEA;
+        box-shadow:0px 1px 1px #FFF inset,	
+        		   0 0 0px 5px #EAEAEA;*/
+/*transition*/
+/*-webkit-transition:all 0.2s linear;
+   -moz-transition:all 0.2s linear;
+     -o-transition:all 0.2s linear;
+        transition:all 0.2s linear;
+}**/
+/*
+#feedback input[type=submit]:hover{
+color:#686868;
+border-color: #CECECE;
+background: rgb(244,244,244);
+background: -moz-linear-gradient(top,  rgba(244,244,244,1) 0%, rgba(242,242,242,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(244,244,244,1)), color-stop(100%,rgba(242,242,242,1)));
+background: -webkit-linear-gradient(top,  rgba(244,244,244,1) 0%,rgba(242,242,242,1) 100%);
+background: -o-linear-gradient(top,  rgba(244,244,244,1) 0%,rgba(242,242,242,1) 100%);
+background: -ms-linear-gradient(top,  rgba(244,244,244,1) 0%,rgba(242,242,242,1) 100%);
+background: linear-gradient(top,  rgba(244,244,244,1) 0%,rgba(242,242,242,1) 100%);
+/*box-shadow
+-webkit-box-shadow:0px 1px 1px #FFF inset,			
+                   0 0 0px 5px #E0E0E0;
+   -moz-box-shadow:0px 1px 1px #FFF inset,
+        			0 0 0px 5px #E0E0E0;
+        box-shadow:0px 1px 1px #FFF inset,
+        			0 0 0px 5px #E0E0E0;        
+}
+#feedback input[type=submit]:active,
+input[type=submit]{
+margin-left:235px;
+cursor:pointer;
+background:none;
+border:none;
+font-family: 'Alice',serif;
+color:#767676;
+font-size:18px;
+padding:10px 4px;
+border:1px solid #E0E0E0;
+text-shadow: 0px 1px  1px #E8E8E8;
+background: rgb(247,247,247);
+background: -moz-linear-gradient(top,  rgba(247,247,247,1) 1%, rgba(242,242,242,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(247,247,247,1)), color-stop(100%,rgba(242,242,242,1)));
+background: -webkit-linear-gradient(top,  rgba(247,247,247,1) 1%,rgba(242,242,242,1) 100%);
+background: -o-linear-gradient(top,  rgba(247,247,247,1) 1%,rgba(242,242,242,1) 100%);
+background: -ms-linear-gradient(top,  rgba(247,247,247,1) 1%,rgba(242,242,242,1) 100%);
+background: linear-gradient(top,  rgba(247,247,247,1) 1%,rgba(242,242,242,1) 100%);
+/*border-radius
+-webkit-border-radius:5px;
+   -moz-border-radius:5px;
+        border-radius:5px;
+/*box-shadow
+-webkit-box-shadow:0px 1px 1px #FFF inset,
+			       0 0 0px 5px #EAEAEA;
+   -moz-box-shadow:0px 1px 1px #FFF inset,	
+   		           0 0 0px 5px #EAEAEA;
+        box-shadow:0px 1px 1px #FFF inset,	
+        		   0 0 0px 5px #EAEAEA;
+/*transition*
+-webkit-transition:all 0.2s linear;
+   -moz-transition:all 0.2s linear;
+     -o-transition:all 0.2s linear;
+        transition:all 0.2s linear;
+}
+
+#feedback input[type=submit]:hover{
+color:#686868;
+border-color: #CECECE;
+background: rgb(244,244,244);
+background: -moz-linear-gradient(top,  rgba(244,244,244,1) 0%, rgba(242,242,242,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(244,244,244,1)), color-stop(100%,rgba(242,242,242,1)));
+background: -webkit-linear-gradient(top,  rgba(244,244,244,1) 0%,rgba(242,242,242,1) 100%);
+background: -o-linear-gradient(top,  rgba(244,244,244,1) 0%,rgba(242,242,242,1) 100%);
+background: -ms-linear-gradient(top,  rgba(244,244,244,1) 0%,rgba(242,242,242,1) 100%);
+background: linear-gradient(top,  rgba(244,244,244,1) 0%,rgba(242,242,242,1) 100%);
+/*box-shadow
+-webkit-box-shadow:0px 1px 1px #FFF inset,			
+                   0 0 0px 5px #E0E0E0;
+   -moz-box-shadow:0px 1px 1px #FFF inset,
+        			0 0 0px 5px #E0E0E0;
+        box-shadow:0px 1px 1px #FFF inset,
+        			0 0 0px 5px #E0E0E0;        
+}
+
+#feedback input[type=submit]:active,
+#feedback input[type=submit]:focus{
+position:relative;
+top:1px;
+color:#515151;
+background: rgb(234,234,234);
+background: -moz-linear-gradient(top,  rgba(234,234,234,1) 0%, rgba(242,242,242,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(234,234,234,1)), color-stop(100%,rgba(242,242,242,1)));
+background: -webkit-linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(242,242,242,1) 100%);
+background: -o-linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(242,242,242,1) 100%);
+background: -ms-linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(242,242,242,1) 100%);
+background: linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(242,242,242,1) 100%);
+-webkit-box-shadow:0px -1px 1px #FFF inset,
+				   0 0 0px 5px #E0E0E0;
+   -moz-box-shadow:0px -1px 1px #FFF inset,
+				   0 0 0px 5px #E0E0E0;
+        box-shadow:0px -1px 1px #FFF inset,
+				   0 0 0px 5px #E0E0E0;
+}
+#feedback input[type=submit]:focus{
+position:relative;
+top:1px;
+color:#515151;
+background: rgb(234,234,234);
+background: -moz-linear-gradient(top,  rgba(234,234,234,1) 0%, rgba(242,242,242,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(234,234,234,1)), color-stop(100%,rgba(242,242,242,1)));
+background: -webkit-linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(242,242,242,1) 100%);
+background: -o-linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(242,242,242,1) 100%);
+background: -ms-linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(242,242,242,1) 100%);
+background: linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(242,242,242,1) 100%);
+*/
+/*box-shadow
+-webkit-box-shadow:0px -1px 1px #FFF inset,
+				   0 0 0px 5px #E0E0E0;
+   -moz-box-shadow:0px -1px 1px #FFF inset,
+				   0 0 0px 5px #E0E0E0;
+        box-shadow:0px -1px 1px #FFF inset,
+				   0 0 0px 5px #E0E0E0;
+}
+
+*/
+/*------------------------*/
+
+.ControlItem
+{
+    height: auto;
+    width: auto;
+    display: block;
+    background-color: #FCCA49;
+    font-size: 20px;
+    border: solid 1px #0800C4;
+	border-radius:5px;
+    padding: 20px;
+    margin: 10px;
+    color: #0340FF;
+	/*color: #000000;*/
+    text-transform:uppercase;
+	font-weight:500;
+}
+.ControlItem:hover 
+{
+    -webkit-transition: 1s ;
+    -moz-transition: 1s ;
+    transition: 1s ;
+    /*background-color: #FF9C06;*/
+	background-color: #fc930a;
+}
+
+.header-option 
+{
+    top: 0.5%;
+    position: absolute;
+    right: 8%;
+    padding: 2px 10px;
+    color: white;
+    font-weight: bold;
+}
+.header-option:hover 
+{
+    background-color:#FF9838;
+    cursor:pointer;
+}
+
+.header-option-content
+{
+    border: solid 1px #0B45AC;
+    background-color: white;
+    height: auto;
+    width: 200px;
+    top: 40px;
+    right: 8%;
+    position: absolute;
+    padding: 10px;
+    text-align: right;
+    display: block;
+    display:none;
+}
+
+.header-option-content .item
+{
+    display: block;
+}
+
+/*-----Search Resource------*/
+#txtSearch input:not([type="checkbox"]){
+	width: auto;
+	margin-top: 4px;
+	padding: 10px 30px 10px 30px;	
+	border: 1px solid rgb(178, 178, 178);
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	  -moz-box-sizing : content-box;
+	       box-sizing : content-box;
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;
+	-webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+	   -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+	        box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+	-webkit-transition: all 0.2s linear;
+	   -moz-transition: all 0.2s linear;
+	     -o-transition: all 0.2s linear;
+	        transition: all 0.2s linear;
+}
+#txtSearch input:not([type="checkbox"]):active, .reset input:not([type="checkbox"]):focus{
+	border: 1px solid rgba(91, 90, 90, 0.7);
+	background: rgba(238, 236, 240, 0.2);	
+	-webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
+	   -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
+	        box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
+} 
+#txtSearch button input{
+	width: auto;
+	cursor: pointer;	
+	/*background: rgb(61, 157, 179);*/
+	background: rgb(252, 147, 10);
+	padding: 5px 5px;
+    margin-left: 300px;
+	/*font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;*/
+	font-family:Arial,Tahoma,Verdana,Sans-serif;
+	color: rgb(252, 147, 10);
+	font-size: 20px;	
+	/*border: 1px solid rgb(28, 108, 122);*/
+	border: 1px solid rgb(223, 122, 24);	
+	margin-bottom: 10px;	
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;	
+	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+	        0px 0px 0px 3px rgb(254, 254, 254),
+	        0px 5px 3px 3px rgb(210, 210, 210);
+	   -moz-box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+	        0px 0px 0px 3px rgb(254, 254, 254),
+	        0px 5px 3px 3px rgb(210, 210, 210);
+	        box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+	        0px 0px 0px 3px rgb(254, 254, 254),
+	        0px 5px 3px 3px rgb(210, 210, 210);
+	-webkit-transition: all 0.2s linear;
+	   -moz-transition: all 0.2s linear;
+	     -o-transition: all 0.2s linear;
+	        transition: all 0.2s linear;
+}
+#txtSearch input[type="submit"]:active, input[type="submit"] {
+margin-left: auto;
+cursor: pointer;
+background: none;
+border: none;
+font-family:Arial,Tahoma,Verdana,Sans-serif;
+color: rgb(252, 147, 10);
+font-size: 18px;
+padding: 10px 4px;
+text-shadow: 0px 1px 1px #E8E8E8;
+background: #F7F7F7;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(247, 247, 247, 1)), color-stop(100%,rgba(242, 242, 242, 1)));
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+-webkit-box-shadow: 0px 1px 1px white inset,
+ 0 0 0px 5px #EAEAEA;
+-moz-box-shadow: 0px 1px 1px #FFF inset,	
+ 0 0 0px 5px #EAEAEA;
+box-shadow: 0px 1px 1px white inset,	
+ 0 0 0px 5px #EAEAEA;
+-webkit-transition: all 0.2s linear;
+-moz-transition: all 0.2s linear;
+-o-transition: all 0.2s linear;
+transition: all 0.2s linear;
+}

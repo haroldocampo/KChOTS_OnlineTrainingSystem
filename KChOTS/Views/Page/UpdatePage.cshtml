@@ -1,0 +1,29 @@
+﻿@model KChOTS.Models.ContentPage.ContentViewModel
+
+@{
+    ViewBag.Title = "Update Content";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="managepageswrapper">
+    <div id="wrapper">
+        <div id="managepages">
+            <h1>Content Management - Update Page</h1>
+            <form method="post">
+                <label class="label" style="margin-right: 5px;">Content Type</label>@Html.DropDownList("cmsType", @Model.CmsTypes, new { @class="selectpage" })<br />
+                <br />
+                <label class="label" style="margin-right: 5px;">Article Name</label><input type = "text" class = "selectpage" name = "subject" placeholder="Content Title"/>
+                <br /><br />
+                <textarea class="ckeditor" id="pagecontent" name="content" cols="20"></textarea>
+                <input type="submit" class="submit" name="Edit Content" />
+                <br /><br />
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('textarea.editor').ckeditor();
+</script>

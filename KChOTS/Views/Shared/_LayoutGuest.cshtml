@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../Content/favicon.ico">
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/KChOTS_Style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/ui-lightness/jquery-ui-1.8.21.custom.css")" rel="Stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/fullcalendar/fullcalendar.css")" rel="Stylesheet" type="text/css" />
+    <script src="../../Scripts/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-ui-1.8.21.custom.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/json2.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.signalR-0.5.2.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/signalr/hubs")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/fullcalendar.min.js")" type="text/javascript"></script>
+    <script src="../../ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script src="../../ckeditor/adapters/jquery.js" type="text/javascript"></script>
+</head>
+<body id="jf-body">
+  <div id="jf-wrap">
+	<div id="jf-wrapper">
+        <span id="header-option" class="header-option">Login</span>
+        <div class="header-option-content">
+            <a class="item" href="@Url.Action("SignIn","Admin")">Admin</a>
+            <a class="item" href="@Url.Action("SignIn","Teacher")">Teacher</a>
+            <a class="item" href="@Url.Action("RequestResetPassword", "Account")">Forgot your Password?</a>
+        </div>
+		<div id="jf-topleft"></div>
+		<div id="jf-topright"></div>
+		<div class="clr"></div>
+		<!-- Header module -->
+		<div id="jf-header-guest">
+			<div id="jf-logo">
+				<a href="../Home/Index"><img src="../../Content/images/kchot-logo4.png"/></a>
+			</div>
+		</div>
+            <div class="main_content guest_main_content">
+            @RenderBody()
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="clear"></div>
+    <div class="footer">
+        <p style="text-align:center;" >© 2012 2in1, Inc. All Rights Reserved.</p>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $("#header-option").click(function () {
+        if ($(".header-option-content").css("display") == 'none') {
+            $(".header-option-content").fadeIn();
+        } else {
+            $(".header-option-content").fadeOut();
+        }
+    });
+</script>

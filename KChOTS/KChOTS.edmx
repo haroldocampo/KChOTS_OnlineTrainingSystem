@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KnowledgeChannelModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="KnowledgeChannelModelStoreContainer">
+          <EntitySet Name="Admins" EntityType="KnowledgeChannelModel.Store.Admins" store:Type="Tables" Schema="team2in1" />
+          <EntitySet Name="CmsTypes" EntityType="KnowledgeChannelModel.Store.CmsTypes" store:Type="Tables" Schema="team2in1" />
+          <EntitySet Name="ContentPage" EntityType="KnowledgeChannelModel.Store.ContentPage" store:Type="Tables" Schema="team2in1" />
+          <EntitySet Name="Events" EntityType="KnowledgeChannelModel.Store.Events" store:Type="Tables" Schema="team2in1" />
+          <EntitySet Name="Feedbacks" EntityType="KnowledgeChannelModel.Store.Feedbacks" store:Type="Tables" Schema="team2in1" />
+          <EntitySet Name="Levels" EntityType="KnowledgeChannelModel.Store.Levels" store:Type="Tables" Schema="team2in1" />
+          <EntitySet Name="PasswordReset" EntityType="KnowledgeChannelModel.Store.PasswordReset" store:Type="Tables" Schema="team2in1" />
+          <EntitySet Name="Resources" EntityType="KnowledgeChannelModel.Store.Resources" store:Type="Tables" Schema="team2in1" />
+          <EntitySet Name="Schools" EntityType="KnowledgeChannelModel.Store.Schools" store:Type="Tables" Schema="team2in1" />
+          <EntitySet Name="Subjects" EntityType="KnowledgeChannelModel.Store.Subjects" store:Type="Tables" Schema="team2in1" />
+          <EntitySet Name="Teachers" EntityType="KnowledgeChannelModel.Store.Teachers" store:Type="Tables" Schema="team2in1" />
+          <AssociationSet Name="FK_ContentPage_Admins" Association="KnowledgeChannelModel.Store.FK_ContentPage_Admins">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="ContentPage" EntitySet="ContentPage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentPage_CmsTypes" Association="KnowledgeChannelModel.Store.FK_ContentPage_CmsTypes">
+            <End Role="CmsTypes" EntitySet="CmsTypes" />
+            <End Role="ContentPage" EntitySet="ContentPage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Admins" Association="KnowledgeChannelModel.Store.FK_Events_Admins">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedbacks_Admins" Association="KnowledgeChannelModel.Store.FK_Feedbacks_Admins">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="Feedbacks" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedbacks_Admins1" Association="KnowledgeChannelModel.Store.FK_Feedbacks_Admins1">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="Feedbacks" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedbacks_Teachers" Association="KnowledgeChannelModel.Store.FK_Feedbacks_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Feedbacks" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InformationPage_Admins" Association="KnowledgeChannelModel.Store.FK_InformationPage_Admins">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="ContentPage" EntitySet="ContentPage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PasswordReset_Admins" Association="KnowledgeChannelModel.Store.FK_PasswordReset_Admins">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="PasswordReset" EntitySet="PasswordReset" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PasswordReset_Teachers" Association="KnowledgeChannelModel.Store.FK_PasswordReset_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="PasswordReset" EntitySet="PasswordReset" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resources_Admins" Association="KnowledgeChannelModel.Store.FK_Resources_Admins">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="Resources" EntitySet="Resources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resources_Levels" Association="KnowledgeChannelModel.Store.FK_Resources_Levels">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="Resources" EntitySet="Resources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resources_Subjects" Association="KnowledgeChannelModel.Store.FK_Resources_Subjects">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="Resources" EntitySet="Resources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resources_Teachers" Association="KnowledgeChannelModel.Store.FK_Resources_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Resources" EntitySet="Resources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_Schools" Association="KnowledgeChannelModel.Store.FK_Teachers_Schools">
+            <End Role="Schools" EntitySet="Schools" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="date" />
+          <Property Name="AdminType" Type="int" />
+        </EntityType>
+        <EntityType Name="CmsTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CmsType" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ContentPage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="PageContent" Type="nvarchar(max)" />
+          <Property Name="DateModified" Type="date" />
+          <Property Name="AdminID" Type="int" />
+          <Property Name="CmsTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="AdminId" Type="int" />
+        </EntityType>
+        <EntityType Name="Feedbacks">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="TeacherID" Type="int" />
+          <Property Name="AdminID" Type="int" />
+          <Property Name="Response" Type="nvarchar(max)" />
+          <Property Name="IsResponded" Type="bit" Nullable="false" />
+          <Property Name="IsRead" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Levels">
+          <Key>
+            <PropertyRef Name="LevelID" />
+          </Key>
+          <Property Name="LevelID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LevelName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PasswordReset">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NewPassword" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ExpiryDate" Type="datetime" Nullable="false" />
+          <Property Name="AdminId" Type="int" />
+          <Property Name="TeacherId" Type="int" />
+        </EntityType>
+        <EntityType Name="Resources">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ResourceFile" Type="nvarchar(max)" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="TeacherID" Type="int" />
+          <Property Name="LevelID" Type="int" />
+          <Property Name="SubjectID" Type="int" />
+          <Property Name="AdminID" Type="int" />
+        </EntityType>
+        <EntityType Name="Schools">
+          <Key>
+            <PropertyRef Name="SchoolID" />
+          </Key>
+          <Property Name="SchoolID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolName" Type="nvarchar(max)" />
+          <Property Name="SchoolType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Subjects">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Teachers">
+          <Key>
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Name="TeacherID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="SchoolID" Type="int" />
+          <Property Name="created_at" Type="date" />
+        </EntityType>
+        <Association Name="FK_ContentPage_Admins">
+          <End Role="Admins" Type="KnowledgeChannelModel.Store.Admins" Multiplicity="0..1" />
+          <End Role="ContentPage" Type="KnowledgeChannelModel.Store.ContentPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="ContentPage">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentPage_CmsTypes">
+          <End Role="CmsTypes" Type="KnowledgeChannelModel.Store.CmsTypes" Multiplicity="0..1" />
+          <End Role="ContentPage" Type="KnowledgeChannelModel.Store.ContentPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CmsTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContentPage">
+              <PropertyRef Name="CmsTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Admins">
+          <End Role="Admins" Type="KnowledgeChannelModel.Store.Admins" Multiplicity="0..1" />
+          <End Role="Events" Type="KnowledgeChannelModel.Store.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedbacks_Admins">
+          <End Role="Admins" Type="KnowledgeChannelModel.Store.Admins" Multiplicity="0..1" />
+          <End Role="Feedbacks" Type="KnowledgeChannelModel.Store.Feedbacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Feedbacks">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedbacks_Admins1">
+          <End Role="Admins" Type="KnowledgeChannelModel.Store.Admins" Multiplicity="0..1" />
+          <End Role="Feedbacks" Type="KnowledgeChannelModel.Store.Feedbacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Feedbacks">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedbacks_Teachers">
+          <End Role="Teachers" Type="KnowledgeChannelModel.Store.Teachers" Multiplicity="0..1" />
+          <End Role="Feedbacks" Type="KnowledgeChannelModel.Store.Feedbacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="Feedbacks">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InformationPage_Admins">
+          <End Role="Admins" Type="KnowledgeChannelModel.Store.Admins" Multiplicity="0..1" />
+          <End Role="ContentPage" Type="KnowledgeChannelModel.Store.ContentPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="ContentPage">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PasswordReset_Admins">
+          <End Role="Admins" Type="KnowledgeChannelModel.Store.Admins" Multiplicity="0..1" />
+          <End Role="PasswordReset" Type="KnowledgeChannelModel.Store.PasswordReset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="PasswordReset">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PasswordReset_Teachers">
+          <End Role="Teachers" Type="KnowledgeChannelModel.Store.Teachers" Multiplicity="0..1" />
+          <End Role="PasswordReset" Type="KnowledgeChannelModel.Store.PasswordReset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="PasswordReset">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resources_Admins">
+          <End Role="Admins" Type="KnowledgeChannelModel.Store.Admins" Multiplicity="0..1" />
+          <End Role="Resources" Type="KnowledgeChannelModel.Store.Resources" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Resources">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resources_Levels">
+          <End Role="Levels" Type="KnowledgeChannelModel.Store.Levels" Multiplicity="0..1" />
+          <End Role="Resources" Type="KnowledgeChannelModel.Store.Resources" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="LevelID" />
+            </Principal>
+            <Dependent Role="Resources">
+              <PropertyRef Name="LevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resources_Subjects">
+          <End Role="Subjects" Type="KnowledgeChannelModel.Store.Subjects" Multiplicity="0..1" />
+          <End Role="Resources" Type="KnowledgeChannelModel.Store.Resources" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="Resources">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resources_Teachers">
+          <End Role="Teachers" Type="KnowledgeChannelModel.Store.Teachers" Multiplicity="0..1" />
+          <End Role="Resources" Type="KnowledgeChannelModel.Store.Resources" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="Resources">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_Schools">
+          <End Role="Schools" Type="KnowledgeChannelModel.Store.Schools" Multiplicity="0..1" />
+          <End Role="Teachers" Type="KnowledgeChannelModel.Store.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schools">
+              <PropertyRef Name="SchoolID" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="SchoolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KnowledgeChannelModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="KnowledgeChannelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="KnowledgeChannelModel.Admin" />
+          <EntitySet Name="CmsTypes" EntityType="KnowledgeChannelModel.CmsType" />
+          <EntitySet Name="ContentPages" EntityType="KnowledgeChannelModel.ContentPage" />
+          <EntitySet Name="Events" EntityType="KnowledgeChannelModel.Event" />
+          <EntitySet Name="Feedbacks" EntityType="KnowledgeChannelModel.Feedback" />
+          <EntitySet Name="Levels" EntityType="KnowledgeChannelModel.Level" />
+          <EntitySet Name="PasswordResets" EntityType="KnowledgeChannelModel.PasswordReset" />
+          <EntitySet Name="Resources" EntityType="KnowledgeChannelModel.Resource" />
+          <EntitySet Name="Schools" EntityType="KnowledgeChannelModel.School" />
+          <EntitySet Name="Subjects" EntityType="KnowledgeChannelModel.Subject" />
+          <EntitySet Name="Teachers" EntityType="KnowledgeChannelModel.Teacher" />
+          <AssociationSet Name="FK_ContentPage_Admins" Association="KnowledgeChannelModel.FK_ContentPage_Admins">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="ContentPage" EntitySet="ContentPages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Admins" Association="KnowledgeChannelModel.FK_Events_Admins">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedbacks_Admins" Association="KnowledgeChannelModel.FK_Feedbacks_Admins">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedbacks_Admins1" Association="KnowledgeChannelModel.FK_Feedbacks_Admins1">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InformationPage_Admins" Association="KnowledgeChannelModel.FK_InformationPage_Admins">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="ContentPage" EntitySet="ContentPages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PasswordReset_Admins" Association="KnowledgeChannelModel.FK_PasswordReset_Admins">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="PasswordReset" EntitySet="PasswordResets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resources_Admins" Association="KnowledgeChannelModel.FK_Resources_Admins">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="Resource" EntitySet="Resources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentPage_CmsTypes" Association="KnowledgeChannelModel.FK_ContentPage_CmsTypes">
+            <End Role="CmsType" EntitySet="CmsTypes" />
+            <End Role="ContentPage" EntitySet="ContentPages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedbacks_Teachers" Association="KnowledgeChannelModel.FK_Feedbacks_Teachers">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resources_Levels" Association="KnowledgeChannelModel.FK_Resources_Levels">
+            <End Role="Level" EntitySet="Levels" />
+            <End Role="Resource" EntitySet="Resources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PasswordReset_Teachers" Association="KnowledgeChannelModel.FK_PasswordReset_Teachers">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="PasswordReset" EntitySet="PasswordResets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resources_Subjects" Association="KnowledgeChannelModel.FK_Resources_Subjects">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="Resource" EntitySet="Resources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resources_Teachers" Association="KnowledgeChannelModel.FK_Resources_Teachers">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Resource" EntitySet="Resources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_Schools" Association="KnowledgeChannelModel.FK_Teachers_Schools">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Type="Int32" Name="AdminID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Username" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateCreated" />
+          <Property Type="Int32" Name="AdminType" />
+          <NavigationProperty Name="ContentPages" Relationship="KnowledgeChannelModel.FK_ContentPage_Admins" FromRole="Admin" ToRole="ContentPage" />
+          <NavigationProperty Name="Events" Relationship="KnowledgeChannelModel.FK_Events_Admins" FromRole="Admin" ToRole="Event" />
+          <NavigationProperty Name="Feedbacks" Relationship="KnowledgeChannelModel.FK_Feedbacks_Admins" FromRole="Admin" ToRole="Feedback" />
+          <NavigationProperty Name="Feedbacks1" Relationship="KnowledgeChannelModel.FK_Feedbacks_Admins1" FromRole="Admin" ToRole="Feedback" />
+          <NavigationProperty Name="ContentPages1" Relationship="KnowledgeChannelModel.FK_InformationPage_Admins" FromRole="Admin" ToRole="ContentPage" />
+          <NavigationProperty Name="PasswordResets" Relationship="KnowledgeChannelModel.FK_PasswordReset_Admins" FromRole="Admin" ToRole="PasswordReset" />
+          <NavigationProperty Name="Resources" Relationship="KnowledgeChannelModel.FK_Resources_Admins" FromRole="Admin" ToRole="Resource" />
+        </EntityType>
+        <EntityType Name="CmsType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CmsType1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ContentPages" Relationship="KnowledgeChannelModel.FK_ContentPage_CmsTypes" FromRole="CmsType" ToRole="ContentPage" />
+        </EntityType>
+        <EntityType Name="ContentPage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PageContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateModified" />
+          <Property Type="Int32" Name="AdminID" />
+          <Property Type="Int32" Name="CmsTypeID" />
+          <NavigationProperty Name="Admin" Relationship="KnowledgeChannelModel.FK_ContentPage_Admins" FromRole="ContentPage" ToRole="Admin" />
+          <NavigationProperty Name="Admin1" Relationship="KnowledgeChannelModel.FK_InformationPage_Admins" FromRole="ContentPage" ToRole="Admin" />
+          <NavigationProperty Name="CmsType" Relationship="KnowledgeChannelModel.FK_ContentPage_CmsTypes" FromRole="ContentPage" ToRole="CmsType" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" />
+          <Property Type="DateTime" Name="EndDate" />
+          <Property Type="Int32" Name="AdminId" />
+          <NavigationProperty Name="Admin" Relationship="KnowledgeChannelModel.FK_Events_Admins" FromRole="Event" ToRole="Admin" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Subject" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Message" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TeacherID" />
+          <Property Type="Int32" Name="AdminID" />
+          <Property Type="String" Name="Response" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsResponded" Nullable="false" />
+          <Property Type="Boolean" Name="IsRead" Nullable="false" />
+          <NavigationProperty Name="Admin" Relationship="KnowledgeChannelModel.FK_Feedbacks_Admins" FromRole="Feedback" ToRole="Admin" />
+          <NavigationProperty Name="Admin1" Relationship="KnowledgeChannelModel.FK_Feedbacks_Admins1" FromRole="Feedback" ToRole="Admin" />
+          <NavigationProperty Name="Teacher" Relationship="KnowledgeChannelModel.FK_Feedbacks_Teachers" FromRole="Feedback" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="Level">
+          <Key>
+            <PropertyRef Name="LevelID" />
+          </Key>
+          <Property Type="Int32" Name="LevelID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="LevelName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Resources" Relationship="KnowledgeChannelModel.FK_Resources_Levels" FromRole="Level" ToRole="Resource" />
+        </EntityType>
+        <EntityType Name="PasswordReset">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="NewPassword" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ExpiryDate" Nullable="false" />
+          <Property Type="Int32" Name="AdminId" />
+          <Property Type="Int32" Name="TeacherId" />
+          <NavigationProperty Name="Admin" Relationship="KnowledgeChannelModel.FK_PasswordReset_Admins" FromRole="PasswordReset" ToRole="Admin" />
+          <NavigationProperty Name="Teacher" Relationship="KnowledgeChannelModel.FK_PasswordReset_Teachers" FromRole="PasswordReset" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ResourceFile" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateCreated" />
+          <Property Type="Int32" Name="TeacherID" />
+          <Property Type="Int32" Name="LevelID" />
+          <Property Type="Int32" Name="SubjectID" />
+          <Property Type="Int32" Name="AdminID" />
+          <NavigationProperty Name="Admin" Relationship="KnowledgeChannelModel.FK_Resources_Admins" FromRole="Resource" ToRole="Admin" />
+          <NavigationProperty Name="Level" Relationship="KnowledgeChannelModel.FK_Resources_Levels" FromRole="Resource" ToRole="Level" />
+          <NavigationProperty Name="Subject" Relationship="KnowledgeChannelModel.FK_Resources_Subjects" FromRole="Resource" ToRole="Subject" />
+          <NavigationProperty Name="Teacher" Relationship="KnowledgeChannelModel.FK_Resources_Teachers" FromRole="Resource" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="SchoolID" />
+          </Key>
+          <Property Type="Int32" Name="SchoolID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SchoolName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SchoolType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Teachers" Relationship="KnowledgeChannelModel.FK_Teachers_Schools" FromRole="School" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Type="Int32" Name="SubjectID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SubjectName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Resources" Relationship="KnowledgeChannelModel.FK_Resources_Subjects" FromRole="Subject" ToRole="Resource" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Type="Int32" Name="TeacherID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="BirthDate" />
+          <Property Type="String" Name="ContactNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Gender" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SchoolID" />
+          <Property Type="DateTime" Name="created_at" />
+          <NavigationProperty Name="Feedbacks" Relationship="KnowledgeChannelModel.FK_Feedbacks_Teachers" FromRole="Teacher" ToRole="Feedback" />
+          <NavigationProperty Name="PasswordResets" Relationship="KnowledgeChannelModel.FK_PasswordReset_Teachers" FromRole="Teacher" ToRole="PasswordReset" />
+          <NavigationProperty Name="Resources" Relationship="KnowledgeChannelModel.FK_Resources_Teachers" FromRole="Teacher" ToRole="Resource" />
+          <NavigationProperty Name="School" Relationship="KnowledgeChannelModel.FK_Teachers_Schools" FromRole="Teacher" ToRole="School" />
+        </EntityType>
+        <Association Name="FK_ContentPage_Admins">
+          <End Type="KnowledgeChannelModel.Admin" Role="Admin" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.ContentPage" Role="ContentPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="ContentPage">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Admins">
+          <End Type="KnowledgeChannelModel.Admin" Role="Admin" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedbacks_Admins">
+          <End Type="KnowledgeChannelModel.Admin" Role="Admin" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.Feedback" Role="Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedbacks_Admins1">
+          <End Type="KnowledgeChannelModel.Admin" Role="Admin" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.Feedback" Role="Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InformationPage_Admins">
+          <End Type="KnowledgeChannelModel.Admin" Role="Admin" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.ContentPage" Role="ContentPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="ContentPage">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PasswordReset_Admins">
+          <End Type="KnowledgeChannelModel.Admin" Role="Admin" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.PasswordReset" Role="PasswordReset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="PasswordReset">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resources_Admins">
+          <End Type="KnowledgeChannelModel.Admin" Role="Admin" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.Resource" Role="Resource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Resource">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentPage_CmsTypes">
+          <End Type="KnowledgeChannelModel.CmsType" Role="CmsType" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.ContentPage" Role="ContentPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CmsType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContentPage">
+              <PropertyRef Name="CmsTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedbacks_Teachers">
+          <End Type="KnowledgeChannelModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.Feedback" Role="Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resources_Levels">
+          <End Type="KnowledgeChannelModel.Level" Role="Level" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.Resource" Role="Resource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Level">
+              <PropertyRef Name="LevelID" />
+            </Principal>
+            <Dependent Role="Resource">
+              <PropertyRef Name="LevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PasswordReset_Teachers">
+          <End Type="KnowledgeChannelModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.PasswordReset" Role="PasswordReset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="PasswordReset">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resources_Subjects">
+          <End Type="KnowledgeChannelModel.Subject" Role="Subject" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.Resource" Role="Resource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectID" />
+            </Principal>
+            <Dependent Role="Resource">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resources_Teachers">
+          <End Type="KnowledgeChannelModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.Resource" Role="Resource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="Resource">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_Schools">
+          <End Type="KnowledgeChannelModel.School" Role="School" Multiplicity="0..1" />
+          <End Type="KnowledgeChannelModel.Teacher" Role="Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="SchoolID" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="SchoolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KnowledgeChannelModelStoreContainer" CdmEntityContainer="KnowledgeChannelEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="KnowledgeChannelModel.Admin">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="AdminType" ColumnName="AdminType" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CmsTypes">
+            <EntityTypeMapping TypeName="KnowledgeChannelModel.CmsType">
+              <MappingFragment StoreEntitySet="CmsTypes">
+                <ScalarProperty Name="CmsType1" ColumnName="CmsType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentPages">
+            <EntityTypeMapping TypeName="KnowledgeChannelModel.ContentPage">
+              <MappingFragment StoreEntitySet="ContentPage">
+                <ScalarProperty Name="CmsTypeID" ColumnName="CmsTypeID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="PageContent" ColumnName="PageContent" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="KnowledgeChannelModel.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="KnowledgeChannelModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedbacks">
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="IsResponded" ColumnName="IsResponded" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Levels">
+            <EntityTypeMapping TypeName="KnowledgeChannelModel.Level">
+              <MappingFragment StoreEntitySet="Levels">
+                <ScalarProperty Name="LevelName" ColumnName="LevelName" />
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PasswordResets">
+            <EntityTypeMapping TypeName="KnowledgeChannelModel.PasswordReset">
+              <MappingFragment StoreEntitySet="PasswordReset">
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="NewPassword" ColumnName="NewPassword" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resources">
+            <EntityTypeMapping TypeName="KnowledgeChannelModel.Resource">
+              <MappingFragment StoreEntitySet="Resources">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ResourceFile" ColumnName="ResourceFile" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schools">
+            <EntityTypeMapping TypeName="KnowledgeChannelModel.School">
+              <MappingFragment StoreEntitySet="Schools">
+                <ScalarProperty Name="SchoolType" ColumnName="SchoolType" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="KnowledgeChannelModel.Subject">
+              <MappingFragment StoreEntitySet="Subjects">
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="KnowledgeChannelModel.Teacher">
+              <MappingFragment StoreEntitySet="Teachers">
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="KChOTS" ZoomLevel="92">
+        <EntityTypeShape EntityType="KnowledgeChannelModel.Admin" Width="1.5" PointX="0.75" PointY="8.125" Height="4.0956022135416745" />
+        <EntityTypeShape EntityType="KnowledgeChannelModel.CmsType" Width="1.5" PointX="0.75" PointY="5.375" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="KnowledgeChannelModel.ContentPage" Width="1.5" PointX="3" PointY="8.75" Height="2.7494921875000031" />
+        <EntityTypeShape EntityType="KnowledgeChannelModel.Event" Width="1.5" PointX="3" PointY="12.5" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="KnowledgeChannelModel.Feedback" Width="1.5" PointX="6" PointY="8.625" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="KnowledgeChannelModel.Level" Width="1.5" PointX="3.75" PointY="1" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="KnowledgeChannelModel.PasswordReset" Width="1.5" PointX="3" PointY="5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="KnowledgeChannelModel.Resource" Width="1.5" PointX="6" PointY="3.375" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="KnowledgeChannelModel.School" Width="1.5" PointX="1.5" PointY="19.625" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="KnowledgeChannelModel.Subject" Width="1.5" PointX="3.75" PointY="16.25" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="KnowledgeChannelModel.Teacher" Width="1.5" PointX="3.75" PointY="18.625" Height="3.7109993489583246" />
+        <AssociationConnector Association="KnowledgeChannelModel.FK_ContentPage_Admins" >
+          <ConnectorPoint PointX="2.25" PointY="10.124746093750002" />
+          <ConnectorPoint PointX="2.6041666666666665" PointY="10.12474609375" />
+          <ConnectorPoint PointX="2.8958333333333335" PointY="10.124746093750002" />
+          <ConnectorPoint PointX="3" PointY="10.124746093750002" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_Events_Admins" >
+          <ConnectorPoint PointX="1.5" PointY="12.220602213541675" />
+          <ConnectorPoint PointX="1.5" PointY="13.586293945312502" />
+          <ConnectorPoint PointX="2.6041666666666665" PointY="13.586293945312502" />
+          <ConnectorPoint PointX="2.7708333333333335" PointY="13.586293945312502" />
+          <ConnectorPoint PointX="3" PointY="13.586293945312502" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_Feedbacks_Admins" >
+          <ConnectorPoint PointX="2.25" PointY="11.660543619791671" />
+          <ConnectorPoint PointX="2.6041666666666665" PointY="11.660543619791671" />
+          <ConnectorPoint PointX="2.7708333333333335" PointY="11.660543619791671" />
+          <ConnectorPoint PointX="4.994791666666667" PointY="11.660543619791671" />
+          <ConnectorPoint PointX="5.161458333333333" PointY="11.660543619791671" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="11.660543619791671" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="11.660543619791671" />
+          <ConnectorPoint PointX="6" PointY="11.660543619791671" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_Feedbacks_Admins1" >
+          <ConnectorPoint PointX="2.25" PointY="8.65625" />
+          <ConnectorPoint PointX="2.6041666666666665" PointY="8.6562499999999982" />
+          <ConnectorPoint PointX="2.8958333333333335" PointY="8.65625" />
+          <ConnectorPoint PointX="4.994791666666667" PointY="8.65625" />
+          <ConnectorPoint PointX="5.161458333333333" PointY="8.65625" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="8.65625" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="8.65625" />
+          <ConnectorPoint PointX="6" PointY="8.65625" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_InformationPage_Admins" >
+          <ConnectorPoint PointX="2.25" PointY="9.374873046875" />
+          <ConnectorPoint PointX="2.6041666666666665" PointY="9.374873046874999" />
+          <ConnectorPoint PointX="2.8958333333333335" PointY="9.374873046875" />
+          <ConnectorPoint PointX="3" PointY="9.374873046875" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_PasswordReset_Admins" >
+          <ConnectorPoint PointX="2.2257692307692305" PointY="8.125" />
+          <ConnectorPoint PointX="2.625" PointY="7.7257692307692309" />
+          <ConnectorPoint PointX="2.625" PointY="6.1824446614583337" />
+          <ConnectorPoint PointX="3" PointY="6.1824446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_Resources_Admins" >
+          <ConnectorPoint PointX="2.25" PointY="8.1515374615384619" />
+          <ConnectorPoint PointX="2.6515374615384619" PointY="7.75" />
+          <ConnectorPoint PointX="2.7291666666666665" PointY="7.7499999999999991" />
+          <ConnectorPoint PointX="2.8958333333333335" PointY="7.75" />
+          <ConnectorPoint PointX="4.994791666666667" PointY="7.7499999999999991" />
+          <ConnectorPoint PointX="5.161458333333333" PointY="7.75" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="7.7499999999999991" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="7.75" />
+          <ConnectorPoint PointX="6.75" PointY="7.75" />
+          <ConnectorPoint PointX="6.75" PointY="6.8936979166666674" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_ContentPage_CmsTypes" >
+          <ConnectorPoint PointX="2.25" PointY="6.90837490144231" />
+          <ConnectorPoint PointX="2.5660744349011213" PointY="7.2244493363434312" />
+          <ConnectorPoint PointX="2.6839255650988791" PointY="7.3423004665411895" />
+          <ConnectorPoint PointX="2.8125" PointY="7.47087490144231" />
+          <ConnectorPoint PointX="2.8125" PointY="10.843371140625003" />
+          <ConnectorPoint PointX="3" PointY="10.843371140625003" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_Feedbacks_Teachers" >
+          <ConnectorPoint PointX="5.25" PointY="20.480499674479162" />
+          <ConnectorPoint PointX="6.75" PointY="20.480499674479162" />
+          <ConnectorPoint PointX="6.75" PointY="11.759095052083339" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_Resources_Levels" >
+          <ConnectorPoint PointX="4.90625" PointY="2.5956835937500031" />
+          <ConnectorPoint PointX="4.90625" PointY="4.15625" />
+          <ConnectorPoint PointX="6" PointY="4.15625" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_PasswordReset_Teachers" >
+          <ConnectorPoint PointX="3.7511528461538459" PointY="18.625" />
+          <ConnectorPoint PointX="3.3761528461538468" PointY="18.25" />
+          <ConnectorPoint PointX="2.6875" PointY="18.25" />
+          <ConnectorPoint PointX="2.6875" PointY="7.6773893229166674" />
+          <ConnectorPoint PointX="3" PointY="7.3648893229166674" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_Resources_Subjects" >
+          <ConnectorPoint PointX="5.078125" PointY="16.25" />
+          <ConnectorPoint PointX="5.078125" PointY="4.5781274999999937" />
+          <ConnectorPoint PointX="6" PointY="4.5781274999999937" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_Resources_Teachers" >
+          <ConnectorPoint PointX="5.25" PointY="18.626152846153843" />
+          <ConnectorPoint PointX="5.625" PointY="18.251152846153843" />
+          <ConnectorPoint PointX="5.625" PointY="5.7671647083333237" />
+          <ConnectorPoint PointX="6" PointY="5.7671647083333237" />
+        </AssociationConnector>
+        <AssociationConnector Association="KnowledgeChannelModel.FK_Teachers_Schools" >
+          <ConnectorPoint PointX="3" PointY="20.518992513020834" />
+          <ConnectorPoint PointX="3.75" PointY="20.518992513020834" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

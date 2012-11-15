@@ -1,0 +1,46 @@
+﻿@model KChOTS.Models.Teacher.TeacherUploadViewModel
+@{
+    ViewBag.Title = "Upload File";
+}
+
+<div class="uploadwrapper">
+    <div id="wrapper">
+    @Html.ValidationSummary()
+    @using (Html.BeginForm("UploadFile", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div id="upload">
+            <h1>Upload Teaching Materials</h1>
+                <h4 style="color:Lime;">@Model.Message</h4> 
+                <h4>File Information</h4>
+                <table width="600" cellpadding="5">
+                    <tr><span><b id="errorMessage" style="color:Red;"></b><span/></tr>
+                    <tr>
+                        <td align="right">Resource File</td>
+                        <td>@Html.TextBoxFor(x => x.Resource.ResourceFile, new { type = "file", required = "required" })</td>
+                    </tr>
+                    <tr>
+                        <td align="right">Resource Name</td>
+                        <td>@Html.TextBoxFor(x => x.Resource.Name, new { @class = "input", autofocus = "autofocus", required = "required" })</td>
+                    </tr>
+                    <tr>
+                        <td align="right">Resource Description</td>
+                        <td>@Html.TextBoxFor(x => x.Resource.Description, new { @class = "input", required = "required" })</td>
+                    </tr>
+                    <tr>
+                        <td align="right">School Level Category</td>
+                        <td>@Html.DropDownListFor(x => x.Resource.ResourceLevel, Model.Levels, new { @class = "selectupload", required = "required" })</td>
+                    </tr>
+                    <tr>
+                        <td align="right">Subject Category</td>
+                        <td>@Html.DropDownListFor(x => x.Resource.ResourceSubject, Model.Subjects, new { @class = "selectupload", required = "required" })</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" class="button" value="Upload File" /></td>
+                    </tr>
+                </table>
+        </div>
+     }
+     </div>
+ </div>
+ <div class="clear"></div>

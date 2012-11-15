@@ -1,0 +1,11 @@
+﻿@model KChOTS.ContentPage
+@{
+    ViewBag.Title = "Article";
+}
+
+<h3>@Model.Name</h3>
+<hr />
+<div class="pageContent">
+    @Html.Raw(Model.PageContent)
+</div>
+<hr />

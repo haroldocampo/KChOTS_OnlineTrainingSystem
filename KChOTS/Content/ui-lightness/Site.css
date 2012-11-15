@@ -1,0 +1,359 @@
+
+@charset "utf-8";
+/* CSS Document */
+
+/*------------------------------------------------------------------------
+# JF TEXTURIA - JOOMFREAK.COM JOOMLA 1.7.0 TEMPLATE 12-2011
+# ------------------------------------------------------------------------
+# COPYRIGHT: (C) 2011 JOOMFREAK.COM / KREATIF MULTIMEDIA GMBH
+# LICENSE: Creative Commons Attribution
+# AUTHOR: JOOMFREAK.COM
+# WEBSITE:  http://www.joomfreak.com - http://www.kreatif-multimedia.com
+# EMAIL:  info@joomfreak.com
+-------------------------------------------------------------------------*/
+
+
+@font-face {
+    font-family: 'ArchitectsDaughter';
+    src: url('~/ArchitectsDaughter.eot');
+    src: url('~/ArchitectsDaughter.eot?#iefix') format('embedded-opentype'),
+         url('~/ArchitectsDaughter.woff') format('woff'),
+         url('~/ArchitectsDaughter.ttf') format('truetype'),
+         url('~/ArchitectsDaughter.svg#ArchitectsDaughter') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html {
+  height: 100%;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+	font-family: Tahoma,Verdana,sans-serif;
+	line-height: 1.8em;
+	margin: 0px 0px 0px 0px;
+	font-size: 15px;
+	color: #303030;
+}
+
+a:link, a:visited {
+	color:#fc930a;
+	text-decoration: none;
+	font-weight: bold;
+	outline:none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+input.button { cursor: pointer; }
+
+p { margin-top: 0; margin-bottom: 5px; }
+
+img { border: 0 none; }
+
+/*****************************************/
+/*** Template specific layout elements ***/
+/*****************************************/
+.clr{
+	clear:both;
+	margin:0px;
+	padding:0px;
+}
+#jf-body {
+	padding: 0px;
+	margin: 0px;
+	background:url(../../Content/themes/base/images/jf_body.png) repeat-x top left #f6f6f6;
+}
+#jf-wrap{
+	background:url(../../Content/themes/base/images/jf_footer.png) repeat-x bottom left;
+	position:relative;
+	
+}
+#jf-bottom-bg{
+		/*width:1045px;
+		margin:0 auto;*/
+		background:url(../../Content/themes/base/images/jf_bottom.png) no-repeat bottom center;
+		padding-bottom:200px;
+}
+#jf-wrapper{
+	margin:0 auto;
+	width:1034px;
+}
+#jf-topleft{
+	float:left;
+	width:300px;
+	margin-left:10px;
+	height:22px;
+	line-height:22px;
+	color:#f8ce98;
+	margin-bottom:10px;
+}
+#jf-topleft p{
+	margin:0px;
+	padding:0px;	
+}
+#jf-topright{
+	float:right;
+	width:300px;
+	margin-right:35px;
+	height:22px;
+	line-height:22px;
+	color:#cb780d;
+	margin-bottom:10px;
+	text-align:right;
+}
+#jf-topright p{
+	padding:0px;
+	margin:0px;
+}
+#jf-topright ul{
+	padding:0px;
+	margin:0px;
+}
+#jf-topright ul li{
+	display:inline-block;
+}
+#jf-topright a,#jf-topright a:visited{
+	color:#f6f6f6;
+	text-transform:uppercase;
+	display:block;
+	padding:0px 10px;
+	font-weight:normal;
+	font-size:20px;
+}
+#jf-topright a:hover{
+	color:#323232;
+}
+
+
+#jf-header{
+	height:115px;
+	overflow:hidden;
+	margin-top:15px;
+	clear:both;
+}
+#jf-logo{
+	float:left;
+	width:0px;
+	margin-left:5px;
+	height:100px;
+}
+/*main menu */
+#jf-mainmenu{
+	float:left;
+	height:60px;
+	width:1000px;
+	margin-top:80px;
+	margin-left:20px;
+}
+#jf-mainmenu ul{
+	padding:0px;
+	margin:0px;
+}
+#jf-mainmenu ul li{
+	list-style:none;
+	float:left;
+	padding:7px 10px;
+	background:url(../../Content/themes/base/images/jf_menu_div.png) no-repeat top right;
+	height:20px;
+}
+#jf-mainmenu ul li a,#jf-mainmenu ul li a:visited{
+	display:block;
+	font-size:16px;
+	color:#3d3d3d;
+	font-family:"ArchitectsDaughter";
+	text-decoration:none;
+	font-weight:normal;
+	line-height:20px;
+	height:20px;
+}
+#jf-mainmenu ul li.last{
+	padding-right:0px !important;
+	background:none !important;
+}
+#jf-mainmenu ul li a span{
+	display:block;
+	font-family:"ArchitectsDaughter";
+	font-size:16px;
+	line-height:20px;
+	height:20px;
+	font-weight:normal;
+	color:#3d3d3d;
+	padding-left:13px;
+	padding-right:15px;
+}
+#jf-mainmenu ul li a:hover,#jf-mainmenu ul li.active a{
+	color:#fff;
+	background:url(../../Content/themes/base/images/jf_menu_item_left.jpg) no-repeat;
+	text-decoration:none;
+}
+#jf-mainmenu ul li a:hover span,#jf-mainmenu ul li.active a span{
+	color:#fff;
+	background:url(../../Content/themes/base/images/jf_menu_item_right.jpg) no-repeat top right;
+}
+
+#jf-mainmenu ul li ul{
+	display:none;
+}
+
+#jf-submenu ul li{
+	margin-top:5px !important;
+	padding:0px 20px !important;
+	background:none !important;
+}
+#jf-submenu ul li a span{
+	font-size:13px;
+}
+
+
+
+/*----------------------DEFAULT CSS---------------------*/
+/*body
+{
+    font-size: .85em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}*/
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+
+fieldset 
+{
+    border:1px solid #ddd;
+    padding:0 1.4em 1.4em 1.4em;
+    margin:0 0 1.5em 0;
+}
+
+legend 
+{
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+textarea 
+{
+    min-height: 75px;
+}
+
+.editor-label 
+{
+    margin: 1em 0 0 0;
+}
+
+.editor-field 
+{
+    margin:0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/* ------------- Custom CSS by 2in1 ------------- */
+
+.main_content
+{
+    margin: 50px;
+}
+
+h1 
+{
+    color: #fc930a;
+    font-size: 30px;
+    font-family: Arial;
+}
+
+h2
+{
+    color: #fc930a;
+    font-size: 24px;
+    font-family: Arial;
+}
+
+.input
+{
+	font-family:Arial;
+	font-size: 15px;
+    width:140px;
+    border: 1px #5c9fcf solid;
+}
+.button
+{
+    width:auto;
+    border: 1px #5c9fcf solid;
+    border-radius: 8px; 
+ }
+
+/* ------------- Custom CSS ------------- */
+
+.connected{color:Green}
+.disconnected{color:Red}
+
+/* ------------- Register ------------- */
+
+#reg-wrapper
+{
+	margin:0 auto;
+	width:600px;
+	border: 1.2px #5c9fcf solid;
+	padding-left: 20px;
+}
+
+.submit
+{
+    float:right;
+}
+
+/* ------------- Sign In ------------- */
+
+#signin-wrapper
+{
+	float:right;
+	margin:0 auto;
+	width:350px;
+	border: 1.2px #5c9fcf solid;
+	padding-left: 20px;
+}

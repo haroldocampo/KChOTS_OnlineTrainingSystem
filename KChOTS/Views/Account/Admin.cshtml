@@ -1,0 +1,67 @@
+﻿@model KChOTS.Admin
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="center">
+@Html.ValidationSummary()
+</div>
+<div class="adminwrapper">
+<div id="wrapper">
+@using (Html.BeginForm("Admin", "Account", FormMethod.Post))
+{   <div id="account">
+        <h1>Account Information</h1>
+        <table width="650">
+            <tr>
+                <td>Name</td>
+                <td>Username</td>
+            </tr>
+            <tr>
+                <td> @Html.EditorFor(model => model.LastName, new { @class = "input", placeholder = "LastName", required = "required" })@Html.ValidationMessageFor(model => model.LastName)</td>
+                <td>@Html.EditorFor(model => model.Username, new { @class = "input", placeholder = "Username", autofocus = "autofocus", required = "required" })@Html.ValidationMessageFor(model => model.Username)</td>
+
+            </tr>
+            <tr>
+                <td> @Html.EditorFor(model => model.FirstName, new { @class = "input", placeholder = "FirstName", required = "required" })
+                @Html.ValidationMessageFor(model => model.FirstName)</td>
+                <td>Password</td>
+            </tr>
+            <tr>
+                <td>Contact Number</td>
+                <td> @Html.PasswordFor(model => model.Password, new { id = "password", @class = "input", required = "required" })@Html.ValidationMessageFor(model => model.Password)</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.ContactNo, new {maxlength = "11" })@Html.ValidationMessageFor(model => model.ContactNo)</td>
+                <td>Confirm Password</td>
+            </tr>
+            <tr>
+                <td>Email Address</td>
+                <td>@Html.Password("confirmpass",null, new { id = "confirmpassword", required = "required" })</td>
+
+            </tr>
+            <tr>
+                <td> @Html.EditorFor(model => model.Email, new { @class = "input", required = "required" })@Html.ValidationMessageFor(model => model.Email)</td>
+                <td><b id="passwordmessage" style="color:Red;"></b></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input style="margin: 10px 0" type="submit" class="button" value="Edit Admin" /></td>
+            </tr>
+       </table>
+    </div>
+}
+</div>
+</div>
+
+<script type="text/javascript">
+    $("#confirmpassword").keyup(function () {
+        var pword = $("#password").val();
+        var cpword = $("#confirmpassword").val();
+        if (pword != cpword) {
+            $("#passwordmessage").html("Passwords do not match");
+        } else {
+            $("#passwordmessage").html("");
+        }
+    });
+</script>

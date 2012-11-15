@@ -1,0 +1,53 @@
+﻿@model KChOTS.Models.Teacher.TeacherIndexViewModel
+@{
+    ViewBag.Title = "Teacher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="calendarwrapper">
+    <h3>Upcoming Events</h3>
+    @Html.Partial("_EventCalendar")
+</div>
+
+<div class="newmessagesrwrapper">
+        @if (Model.Feedbacks.Count > 0) {<h3 style="color:#006808;">You have new message/s.</h3>}
+        <div class="Feedback">
+            @foreach (var feedback in Model.Feedbacks) {
+                <a href="@Url.Action("Response", "Feedback", new { id = feedback.ID})">
+                    <div class="ItemWrapper">
+                        <div class="itemProperty" style="margin: 5px 5px;font-style: italic;">Response:
+                        @if(feedback.Response.Length < 20)
+                        {
+                             @feedback.Response
+                        }else
+                        {
+                             string response = feedback.Response.Substring(0, 20);
+                             string readmore = response + "...(Read more)";
+                             @readmore
+                        }
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+</div>
+
+<div class="recentuploadsrwrapper">
+    <h3>Recent Uploads</h3>
+    <div class="2columns">
+        <div class="resources_wrapper">
+            @foreach (var resource in Model.Resources) {
+            <a href="@Url.Action("Download", "Utility", new { filename = resource.ResourceFilePath })">
+                <div class="ItemWrapper">
+                    <div class="itemName">@resource.Name</div>
+                    <div class="itemContent">@resource.Description</div>
+                    <div class="itemProperty" style="margin: 5px 5px;font-style: italic;">Date Created: @resource.DateCreated.ToShortDateString()</div>
+                </div>
+            </a>
+            }
+            @if (Model.Resources.Count == 0) {
+                <h3 style="color:Red; margin-left:20px;">No Resources Found</h3>
+            }
+        </div>
+    </div>
+</div>

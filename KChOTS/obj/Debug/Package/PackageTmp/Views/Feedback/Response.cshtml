@@ -1,0 +1,13 @@
+﻿@model KChOTS.Models.Feedback.FeedbackViewModel
+@{
+    ViewBag.Title = "Response";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.SpecificFeedback.Feedback.Subject</h2>
+
+<h3>Our Response:</h3>
+<p>@Model.SpecificFeedback.Feedback.Response</p>
+
+<h3>Your Feedback:</h3>
+<p>@Model.SpecificFeedback.Feedback.Message</p>
